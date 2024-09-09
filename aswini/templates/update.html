@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        .profile-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #f9f9f9; /* Background color for the profile picture input */
+        }
+        #profile-image {
+            margin-bottom: 10px;
+            max-width: 200px;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h1>User Profile</h1>
+        <form id="profile-form" onsubmit="submitProfile(event)">
+            <label for="profile_pic">Profile Picture:</label>
+<br>
+            <img id="profile-image" src="" alt="Selected Profile Picture">
+<br>
+            <input type="file" id="profile_pic" name="profile_pic" onchange="previewProfilePicture(this)" accept="image/*">
+<br>
+            
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+<br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+<br>
+
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" id="phone_number" name="phone_number" placeholder="Enter your phone number" required>
+<br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+<br>
+
+            <button type="submit">Update Profile</button>
+        </form>
+    </div>
+    <div id="profile-details" style="display: none;">
+        <!-- User profile details will be displayed here -->
+    </div>
+
+    <script>
+        function previewProfilePicture(input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById("profile-image").src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                document.getElementById("profile-image").src = "";
+            }
+        }
+
+        function submitProfile(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            // Fetch form data
+            const formData = new FormData(document.getElementById('profile-form'));
+
+            // Create a div to display the user profile details
+            const profileDetailsDiv = document.getElementById('profile-details');
+            profileDetailsDiv.innerHTML = '';
+
+            // Iterate over form data and create HTML elements to display each field
+            formData.forEach((value, key) => {
+                const label = document.createElement('label');
+                label.textContent = key.charAt(0).toUpperCase() + key.slice(1) + ': ';
+                const textNode = key === 'password' ? document.createTextNode('*'.repeat(value.length)) : document.createTextNode(value);
+                label.appendChild(textNode);
+                profileDetailsDiv.appendChild(label);
+                profileDetailsDiv.appendChild(document.createElement('br'));
+            });
+
+            // Show the profile details div
+            profileDetailsDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Customer Segmentation{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            /* Provide the correct path to your image */
+            background-image: url('{{ url_for('static', filename='image - Copy.jpeg') }}'); 
+            background-size: 85% auto; /* Set background-size to 50% of the width and auto height */
+            background-repeat: no-repeat;
+            background-position: center right; /* Change to center right */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        .container {
+            display: flex; /* Use flexbox for layout */
+        }
+
+        .sidebar {
+            width: 200px; /* Set width of sidebar */
+            background-color: #333; /* Add background color to sidebar */
+            color: white; /* Set text color in sidebar */
+            padding: 20px; /* Add padding to sidebar */
+        }
+
+        .logo img {
+            max-width: 100px; /* Adjust maximum width of the logo image */
+            display: block; /* Ensures the image is displayed as a block element */
+            margin: 0 auto; /* Centers the image horizontally */
+        }
+
+        .content {
+            flex: 1; /* Allow content to grow and fill remaining space */
+            padding: 20px; /* Add padding to content */
+        }
+
+        .title-heading {
+            text-align: center;
+            color: #ffffff; /* Change color to white */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <!-- Provide the correct path to your logo image -->
+                <img src="{{ url_for('static', filename='image - Copy.jpeg') }}" alt="Logo">
+            </div>
+            <ul class="sidebar-links">
+                <li>
+<a href="/">Home</a>
+</li>
+                <li>
+<a href="/login">Login</a>
+</li>
+                <li>
+<a href="/signup">Signup</a>
+</li>
+                <li>
+<a href="/interactivedashboard">InteractiveDashboard</a>
+</li>
+                <li>
+<a href="/dashboard">Dashboard</a>
+</li>
+                <li>
+<a href="/segmentation">Segmentation</a>
+</li>
+                <li>
+<a href="/result">Result</a>
+</li>
+                <li>
+<a href="/user_profile">User Profile</a>
+</li>
+                <li>
+<a href="/logout">Logout</a>
+</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1 class="title-heading">Customer Segmentation</h1> <!-- Replace 'Your Title Heading Here' with your desired title -->
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

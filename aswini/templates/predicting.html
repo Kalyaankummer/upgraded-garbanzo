@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Segmentation Prediction Result</title>
+</head>
+<body>
+    <h1>Customer Segmentation Prediction Result</h1>
+    <div>
+        <p>Customer ID: {{ customer_id }}</p>
+        <p>Age: {{ age }}</p>
+        <p>Gender: {{ gender }}</p>
+        <p>Item Purchased: {{ item_purchased }}</p>
+        <p>Category: {{ category }}</p>
+        <p>Color: {{ color }}</p>
+        <p>Season: {{ season }}</p>
+        <p>Review Rating: {{ review_rating }}</p>
+        <p>Subscription Status: {{ subscription_status }}</p>
+        <p>Shipping Type: {{ shipping_type }}</p>
+        <p>Discount Applied: {{ discount_applied }}</p>
+        <p>Promo Code Used: {{ promo_code_used }}</p>
+        <p>Previous Purchases: {{ previous_purchases }}</p>
+        <p>Payment Method: {{ payment_method }}</p>
+        <p>Frequency of Purchases: {{ frequency_of_purchases }}</p>
+        {% if prediction %}
+            <p>Prediction: {{ prediction }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

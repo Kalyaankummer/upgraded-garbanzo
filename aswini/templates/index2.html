@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        body {
+            background-image: url('image - Copy.jpeg'); /* Fixed syntax error here */
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white; /* Text color */
+            font-family: Arial, sans-serif; /* Font family */
+            margin: 0; /* Added to remove default margin */
+            padding: 0; /* Added to remove default padding */
+        }
+        .logo img {
+            max-width: 100px; /* Adjust maximum width of the logo image */
+            display: block; /* Ensures the image is displayed as a block element */
+            margin: 0 auto; /* Centers the image horizontally */
+        }
+        .sidebar {
+            background-color: rgba(255, 105, 180, 0.5); /* Pink color with opacity */
+            width: 200px; /* Adjust width as needed */
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding: 20px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: black; /* Adjust link color as needed */
+        }
+        .sidebar ul li a:hover {
+            color: white; /* Adjust link hover color as needed */
+            background-color: black; /* Adjust link hover background color as needed */
+        }
+        .content {
+            margin-left: 220px; /* Adjust margin to accommodate sidebar width */
+            padding: 20px;
+        }
+        .content h1 {
+            color: #ff69b4; /* Pink color */
+            font-size: 36px; /* Font size */
+            text-align: center; /* Center align */
+            margin-top: 100px; /* Top margin */
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> <!-- Added container div -->
+        <div class="sidebar">
+            <div class="logo">
+                <!-- Provide the correct path to your logo image -->
+                <img src="{{ url_for('static', filename='image - Copy.jpeg') }}" alt="Logo">
+            </div>
+            <ul>
+                <li>
+<a href="/home.html">Home</a>
+</li>
+                <li>
+<a href="/login">Login</a>
+</li>
+                <li>
+<a href="/signup">Signup</a>
+</li>
+                <li>
+<a href="/interactivedashboard">Interactive Dashboard</a>
+</li>
+                <li>
+<a href="/dashboard">Dashboard</a>
+</li>
+                <li>
+<a href="/segmentation">Segmentation</a>
+</li>
+                <li>
+<a href="/result">Result</a>
+</li>
+                <li>
+<a href="/user_profile">User Profile</a>
+</li>
+                <li>
+<a href="/logout">Logout</a>
+</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>Welcome to Customer Segmentation Project</h1>
+            <!-- Main content will be loaded here -->
+        </div>
+    </div>
+</body>
+</html>

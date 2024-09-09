@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <div id="imageContainer">
+        <img id="uploadedImage" src="#" alt="Uploaded Image">
+    </div>
+    <form id="uploadForm" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="file">
+        <input type="submit" value="Upload">
+    </form>
+
+    <script>
+        document.getElementById('file').addEventListener('change', function(event) {
+            var uploadedImage = document.getElementById('uploadedImage');
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function(event) {
+                uploadedImage.src = event.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segmentation</title>
+</head>
+<body>
+    <h1>Segmentation</h1>
+    {% if success %}
+        <p>{{ success }}</p>
+    {% endif %}
+    <form id="uploadForm" action="/segmentation" method="post" enctype="multipart/form-data">
+        <label for="file">Choose a file:</label>
+        <input type="file" name="file" id="file" accept=".csv, .txt, .xls, .xlsx" onchange="displayFileName(this)">
+        <input type="submit" value="Upload">
+    </form>
+    <div id="selectedFileContainer">
+        <h2>Selected File:</h2>
+        <p id="selectedFileName">No file selected</p>
+    </div>
+    <div id="fileContentContainer">
+        <h2>File Content:</h2>
+        <pre id="fileContent">
+</pre>
+    </div>
+
+    <script>
+        function displayFileName(input) {
+            var selectedFileName = document.getElementById('selectedFileName');
+            if (input.files.length > 0) {
+                var fileName = input.files[0].name;
+                selectedFileName.textContent = fileName;
+                readUploadedFile(input.files[0]);
+            } else {
+                selectedFileName.textContent = "No file selected";
+                document.getElementById('fileContent').textContent = ""; // Clear file content when no file selected
+            }
+        }
+
+        function readUploadedFile(file) {
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                document.getElementById('fileContent').textContent = event.target.result;
+            };
+            reader.readAsText(file);
+        }
+    </script>
+</body>
+</html>

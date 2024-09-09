@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer segmentation  Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('customer.gif'); /* Add the URL of your background GIF here */
+            background-blend-mode: overlay; /* Blend the background image with the background color */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: blue; /* Change the title color to blue */
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: blue; /* Change the label color to blue */
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #FF5733; /* Change the button color to red */
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button[type="submit"]:hover {
+            background-color: #FF704D; /* Change the button hover color to a lighter red */
+        }
+        #prediction-result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Customer segmentation  Prediction</h1>
+    <form id="prediction-form" method="post">
+        <label for="Customer id">Customer id :</label>
+        <input type="number" id="customer id" name="customer id" min="0" required>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="0" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+        </select>
+
+        <label for="item purchased ">Item Purchased:</label>
+        <select id="item purchased" name="item purchased" required>
+            <option value="1">Sweater</option>
+            <option value="2">Jeans</option>
+            <option value="3">Sandals</option>
+            <option value="4"> Hoodie</option>
+            <option value="5">Backpack</option>
+            <option value="6">Belt</option>
+            <option value="7">Shoes</option>
+            <option value="8">Handbag</option>
+            <option value="9">Blouse</option>
+            <option value="10">Hand bag</option>
+            <option value="11">shorts</option>
+            <option value="12">Dress</option>
+            <option value="13">Skirt</option>
+            <option value="14">Pants</option>
+            <option value="15">Sunglasses</option>
+            <option value="16">Jacket</option>
+            <option value="17">Jewelry</option>
+            <option value="18">T shirt</option>
+        </select>
+
+        <label for="Category">Category:</label>
+        <select id="Category" name="Category" required>
+            <option value="1">Clothing</option>
+            <option value="2">Footwear</option>
+            <option value="3">Outerwear</option>
+            <option value="4">Accessories</option>
+         
+        </select>
+        <label for="Color">Color:</label>
+        <select id="Color" name="Color" required>
+            <option value="1">Gray</option>
+            <option value="2">Maroon</option>
+            <option value="3">White</option>
+            <option value="4">Turquoise</option>
+            <option value="5">Charcoal</option>
+            <option value="6">Silver</option>
+            <option value="7">Pink</option>
+            <option value="8">Purple</option>
+            <option value="9">Olive</option>
+            <option value="10">Gold</option>
+            <option value="11">Violet</option>
+            <option value="12">Teal</option>
+            <option value="13">Lavender</option>
+            <option value="14">Black</option>
+            <option value="15">Green</option>
+            <option value="16">Peach</option>
+            <option value="17">Red</option>
+            <option value="18">Cyan</option>
+            <option value="19">Brown</option>
+            <option value="20">Indigo</option>
+         </select>
+        <label for="Season">Season:</label>
+        <select id="Season" name="Season" required>
+            <option value="1">Winter</option>
+            <option value="2">Spring</option>
+            <option value="3">Summer</option>
+            <option value="4">Fall</option>
+            
+        </select>
+
+
+        <label for="Review Rating">Review Rating:</label>
+        <input type="number" id="Review Rating" name="Review Rating" min="0" max="10" required>
+
+        <label for="Subscription Status">Subscription Status:</label>
+        <select id="Subscription Status" name="Subscription Status" required>
+            <option value="1">Yes</option>
+            <option value="2">No</option>
+        </select>
+        <label for="Shipping Type">Shipping Type:</label>
+        <select id="Shipping Type" name="Shipping Type" required>
+            <option value="1">Express</option>
+            <option value="2">Free Shipping</option>
+            <option value="3">Standard</option>
+            <option value="4">2-Day Shipping</option>
+            <option value="5">Store Pickup</option>
+            <option value="6">Next Dat Air</option>
+           
+        </select>
+
+        <label for="Discount Applied">Discount Applied:</label>
+        <select id="Discount Applied" name="Discount Applied" required>
+            <option value="1">Yes</option>
+            <option value="2">No</option>
+        </select>
+
+        <label for="Promo Code Used">Promo Code Used:</label>
+        <select id="Promo Code Used" name="Promo Code Used" required>
+            <option value="1">Yes</option>
+            <option value="2">No</option>
+        </select>
+        <label for="Previous Purchases">Previous Purchases:</label>
+        <input type="number" id="Previous Purchases" name="Previous Purchases" min="0" required>
+        <label for="Payment Method">Payment Method:</label>
+        <select id="Payment Method" name="Payment Method" required>
+            <option value="1">Venmo</option>
+            <option value="2">Cash</option>
+            <option value="3">Credit Card</option>
+            <option value="4">PayPal</option>
+            <option value="5">Bank Transfer</option>
+            <option value="6">Debit Card</option>
+       </select>
+        <label for="Frequency of Purchases">Frequency of Purchases:</label>
+        <select id="Frequency of Purchases" name="Frequency of Purchases" required>
+            <option value="1">Fortnightly</option>
+            <option value="2">Weekly</option>
+            <option value="3">Annually</option>
+            <option value="4">Quarterly</option>
+            <option value="5">Bi-Weekly</option>
+            <option value="6">Monthly</option>
+            <option value="7">Every 3 Months</option>
+          </select>
+    
+<button type="submit" id="predictButton">Predict</button>
+    </form>
+    <div id="predictionResult">
+</div>
+       <script>
+        document.getElementById("prediction-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            var form = document.getElementById("prediction-form");
+            var formData = new FormData(form);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("prediction-result").innerText = "Prediction: " + data.prediction;
+            })
+            .catch(error => console.error('Error:', error));
+        });   
+ </script> 
+</body>
+</html>

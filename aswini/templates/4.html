@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+      /* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+
+
+/* Updated CSS for sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%; /* Set height to 100% of viewport */
+  width: 200px;
+  background-color: skyblue; /* Set background color */
+}
+.logo {
+  padding: 20px;
+} 
+.menu {
+  padding-top: 20px; /* Add padding to align menu items */
+}
+.menu-item a {
+  text-decoration: none; /* Remove default hyperlink underline */
+  color: rgb(7, 7, 7);
+}
+/* Updated CSS for menu items */
+/* Updated CSS for menu items */
+/* Updated CSS for menu items */
+.menu-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  list-style: none;
+  color: black; /* Set text color */
+  display: block; /* Make menu items block elements */
+  border-radius: 10px; /* Add smooth edges */
+  overflow: hidden; /* Hide overflowing content */
+  position: relative; /* Required for pseudo-element */
+}
+
+.menu-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background-color: rgba(6, 107, 170, 0.953); /* Semi-transparent blue color */
+  z-index: -1;
+  animation: flow 10s infinite linear; /* Apply animation */
+}
+
+@keyframes flow {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.menu-item:hover::before {
+  width: 0;
+}
+
+.menu-item:hover {
+  background-color: rgb(255, 255, 255); /* Change background color on hover */
+}
+
+
+
+
+
+
+.content {
+  margin-left: 200px;
+  padding: 20px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.get-started-btn {
+  background-color: skyblue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-layout {
+  display: flex;
+}
+
+.card {
+  flex: 1;
+  margin-right: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-item {
+  margin-bottom: 10px;
+}
+
+.card-body-background {
+  display: flex;
+  margin-top: 20px;
+}
+
+.card-content {
+  flex: 3;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.image {
+  flex: 1;
+  background-image: url('your-image-url.jpg');
+  background-size: cover;
+  border-radius: 0 5px 5px 0;
+}
+</style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+    <ul class="menu">
+      <li class="menu-item"><a href="/home">Home</a></li>
+      <li class="menu-item"><a href="/login">Login</a></li>
+      <li class="menu-item"><a href="/signup">Signup</a></li>
+      <li class="menu-item"><a href="/interactivedashboard">Interactive Dashboard</a></li>
+      <li class="menu-item"><a href="/dashboard">Dashboard</a></li>
+      <li class="menu-item"><a href="/segmentation">Segmentation</a></li>
+      <li class="menu-item"><a href="/result">Result</a></li>
+      <li class="menu-item"><a href="/user_profile">User Profile</a></li>
+      <li class="menu-item"><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <div class="title">
+      <h1>Open Source Website for Customer Segmentation</h1>
+      <button class="get-started-btn">Get Started</button>
+    </div>
+    <div class="card-layout">
+      <div class="card">
+        <div class="card-body">
+          <h2>Benefits of Using the Platform</h2>
+          <div class="card-item">Efficient Data Management</div>
+          <div class="card-item">Enhanced Decision-Making</div>
+          <div class="card-item">Streamlined Operations</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body-background">
+      <div class="card-content">
+        <h2>Features for Segmenting Customers</h2>
+        <div class="card-item">Data Visualization</div>
+        <div class="card-item">Segmentation Criteria</div>
+        <div class="card-item">Predictive Analytics</div>
+      </div>
+      <div class="image"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
